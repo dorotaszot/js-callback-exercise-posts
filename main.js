@@ -4,22 +4,26 @@ const posts = [
   { title: 'Post Three', id: 3 },
 ];
 
+function addPost(post) {
+  setTimeout(() => {
+    posts.push(post);
+
+  }, 2000);
+}
+
 function getPosts() {
-  posts.forEach(function (post) {
-    const eachPost = document.createElement('li');
-    eachPost.textContent = post.title;
-    console.log(eachPost);
-  })
-  // setTimeout(() => {
-
-  // }, 2000);
+  setTimeout(() => {
+    let output = ''
+    posts.forEach(function (post) {
+      // const eachPost = document.createElement('li');
+      // eachPost.textContent = post.title;
+      // console.log(eachPost);
+      output += `<li>${post.title}</li>`;
+      document.body.innerHTML = output;
+    })
+  }, 1000);
 }
 
-function addPost() {
-  const newPost = { title: 'Post Four', id: 4 }
-  posts.push(newPost)
-  console.log(posts);
-}
-
+// getPosts();
+addPost({ title: 'Post Four', id: 4 });
 getPosts();
-addPost()
