@@ -4,10 +4,10 @@ const posts = [
   { title: 'Post Three', id: 3 },
 ];
 
-function addPost(post) {
+function addPost(post, callback) {
   setTimeout(() => {
     posts.push(post);
-
+    callback()
   }, 2000);
 }
 
@@ -25,5 +25,4 @@ function getPosts() {
 }
 
 // getPosts();
-addPost({ title: 'Post Four', id: 4 });
-getPosts();
+addPost({ title: 'Post Four', id: 4 }, getPosts);
